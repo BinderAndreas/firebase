@@ -1,0 +1,25 @@
+.header-container {
+    background-color: black;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.home-icon {
+    color: white;
+    font-size: 2em;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+.auth-link {
+    text-decoration: none;
+    background-color: rgb(77, 77, 156);
+    color: white;
+    padding: 0.6em;
+    margin: 0.3em;
+    border-radius: 10px;
+}

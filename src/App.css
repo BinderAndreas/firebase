@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,300;1,200&family=Koulen&family=Kulim+Park:wght@200&family=Orbitron&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+:root{
+  --red: #e50916;
+  --white: #ffff;
+  --header-hight:70px;
+  --dark-bg: #221f1f;
+  --light-bg: #f2f3f3;
+  --button-bg: rgb(77, 77, 156);
+  --transparent-bg: rgba(20, 20, 20, 0.7);
+}
