@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage';
 import {BrowserRouter,Routes,Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import CategoryArticles from './pages/CategoryArticles';
-import Auth from './pages/Auth';
+import Auth from './pages/Auth/Auth';
 
 function App() {
   return (
