@@ -3,6 +3,7 @@ import "./auth.css"
 import {auth} from "../../config/firebaseConfig"
 import { createUserWithEmailAndPassword,updateProfile,signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import {storage} from "../../config/firebaseConfig"
 
 function Auth() {
 let navigate = useNavigate();
@@ -10,6 +11,14 @@ const [existingUser,setExistingUser]=useState(true)
 const [name,setName]=useState("")
 const [email,setEmail]=useState("")
 const [password,setPassword]=useState("")
+
+const [userinfo, setUserInfo]=useState({
+  name:"",
+  email:"",
+  password:"",
+})
+
+
 
 const handleLogin=(e)=>{
   e.preventDefault();
