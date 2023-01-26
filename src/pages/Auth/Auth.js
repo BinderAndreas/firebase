@@ -3,7 +3,7 @@ import "./auth.css"
 import {auth} from "../../config/firebaseConfig"
 import { createUserWithEmailAndPassword,updateProfile,signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-import {storage} from "../../config/firebaseConfig"
+
 
 function Auth() {
 let navigate = useNavigate();
@@ -49,7 +49,7 @@ const handleSignup=(e)=>{
     <div>
       {
         existingUser 
-        ? <form className='auth-forms' onSubmit={handleLogin}>
+        ? <form className='auth-form' onSubmit={handleLogin}>
             <h1>Login with your email</h1>
             <div className='form-group'>
               <input type="email"  value={email || "" }placeholder="Enter your email" onChange={(e)=>setEmail(e.target.value)} required />
@@ -58,7 +58,7 @@ const handleSignup=(e)=>{
             <button type="submit">Submit</button>
             <p>Don't have an account? <span onClick={()=>setExistingUser(false)}>SignUp</span></p>
             </form> 
-          : <form className='auth-forms' onSubmit={handleSignup}>
+          : <form className='auth-form' onSubmit={handleSignup}>
             <h1>Signup with your email</h1>
             <div className='form-group'>
               <input value={name || "" } type="text" placeholder="Enter your name" onChange={(e)=>setName(e.target.value)} required />

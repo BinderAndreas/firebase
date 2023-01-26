@@ -21,7 +21,7 @@ function Header({categories}) {
       <FaHome className='home-icon' onClick={()=>navigate("/")}/>
       {
         user 
-        ? <Link to="/addarticle">Add Article</Link>
+        ? <Link to="/addarticle"  className="auth-link">Add Article</Link>
         : null
       }
       <div className='categories-container'>

@@ -44,7 +44,7 @@ useEffect(() => {
         </div>
         <div className='other-articles-container'>
           {
-            otherArticles?.map(item=>{
+            otherArticles && otherArticles?.map(item=>{
               return <div className="other-articles-item" style={{backgroundImage:`url(${item?.image})`}}>
                    <div className='banner-info'>
                       <h3>{item?.title.slice(0,15)}...</h3>
