@@ -36,7 +36,7 @@ useEffect(() => {
 
   return (
     <div className='banner-container'>
-        <div className='main-article-container' style={{backgroundImage:`url(${mainArticle?.image})`}}>
+        <div className='main-article-container' style={{backgroundImage:`url(${mainArticle?.imageUrl})`}}>
           <div className='banner-info'>
             <h2>{mainArticle?.title}...</h2>
             <small>{mainArticle?.createdAt?.toDate().toDateString()}</small>
@@ -45,7 +45,7 @@ useEffect(() => {
         <div className='other-articles-container'>
           {
             otherArticles && otherArticles?.map(item=>{
-              return <div className="other-articles-item" style={{backgroundImage:`url(${item?.image})`}}>
+              return <div className="other-articles-item" style={{backgroundImage:`url(${item?.imageUrl})`}}>
                    <div className='banner-info'>
                       <h3>{item?.title.slice(0,15)}...</h3>
                       <small>{item?.createdAt?.toDate().toDateString()}</small>

@@ -3,6 +3,8 @@ import React, { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import {doc} from 'firebase/firestore'
 import { db } from '../../config/firebaseConfig';
+import "./articleDetails.css"
+import Likes from '../../components/Likes/Likes';
 
 function ArticleDetails() {
     const {articleId}=useParams();
@@ -15,15 +17,26 @@ function ArticleDetails() {
         .then(res=>{
             setArticle(res.data())
         })
-        .then(err=>console.log(err))
+        .catch(err=>console.log(err))
     }, [])
 
   return (
-    <div>
-        {
-            article?.title
-        }
+    <div className="details-container">
+    <h1>{article?.title}</h1>
+    <h2>{article?.summary}</h2> 
+    <div className="details-info-container">
+      <p><span className="article-span">Author:</span> {article?.createdBy?.toUpperCase()}</p>
+      <p><span className="article-span published">Published:</span> {article?.createdAt?.toDate().toDateString()}</p>
+      <Likes articleId={articleId}/>
     </div>
+    <div style={{borderBottom:"solid 1px grey",paddingBottom:"10px",marginBottom:"10px"}}>
+      <img className="details-image" src={article?.imageUrl}/> 
+      <p className="article-description">{article?.paragraphOne}</p>
+      <p className="article-description">{article?.paragraphTwo}</p>
+      <p className="article-description">{article?.paragraphThree}</p>
+    </div>
+    
+</div>
   )
 }
 
