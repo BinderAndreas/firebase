@@ -5,6 +5,7 @@ import {doc} from 'firebase/firestore'
 import { db } from '../../config/firebaseConfig';
 import "./articleDetails.css"
 import Likes from '../../components/Likes/Likes';
+import Comments from '../../components/Comments/Comments';
 
 function ArticleDetails() {
     const {articleId}=useParams();
@@ -35,7 +36,7 @@ function ArticleDetails() {
       <p className="article-description">{article?.paragraphTwo}</p>
       <p className="article-description">{article?.paragraphThree}</p>
     </div>
-    
+    <Comments articleId={articleId}/>
 </div>
   )
 }
