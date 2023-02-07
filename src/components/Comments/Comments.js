@@ -2,8 +2,9 @@
 import React,{useState,useEffect} from 'react'
 import {db, auth} from "../../config/firebaseConfig"
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { addDoc,collection,onSnapshot} from 'firebase/firestore'
+import { addDoc,collection,onSnapshot,deleteDoc,doc, query,where,Timestamp,orderBy} from 'firebase/firestore'
 import "./comments.css"
+import { toast } from 'react-toastify'
 
 function Comments({articleId}) {
 
@@ -13,7 +14,8 @@ function Comments({articleId}) {
 
     useEffect(() => {
         const commentsRef=collection(db,"comments")
-      onSnapshot(commentsRef,(snapshot)=>{
+        const q = query(commentsRef,where("articleId","==",articleId))
+      onSnapshot(q,(snapshot)=>{
         const comments = snapshot.docs.map(item=>({
             id:item.id,
             ...item.data()
@@ -30,7 +32,8 @@ const addNewComment=(e)=>{
         userId:user?.uid,
         articleId:articleId,
         content:newComment,
-        userName:user?.displayName
+        userName:user?.displayName,
+        
     })
     .then(res=>{
         setNewComment("")
@@ -46,7 +49,13 @@ const addNewComment=(e)=>{
 }
 
 const deleteComment=(id)=>{
-    
+    deleteDoc(doc(db,"comments",id))
+    .then(res=>{
+        toast("Deleted successfully",{type:"success",autoClose:500})
+    })
+    .catch(err=>{
+        console.log(err)
+    })
 }
 
   return (

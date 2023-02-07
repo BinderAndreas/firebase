@@ -41,7 +41,8 @@ function AddArticle({categories}) {
                         category:formData.category,
                         imageUrl:url,
                         createdAt: Timestamp.now().toDate(),
-                        createdBy:user?.displayName
+                        createdBy:user?.displayName,
+                        isSelected:false
                     })
                     .then(res=>{
                         toast("article added successfully",{type:"success",autoClose:1500})
