@@ -50,23 +50,23 @@ const handleSignup=(e)=>{
       {
         existingUser 
         ? <form className='auth-form' onSubmit={handleLogin}>
-            <h1>Per Mail einloggen</h1>
+            <h1>Login with your email</h1>
             <div className='form-group'>
-              <input type="email"  value={email || "" }placeholder="Deine E-Mail-Adresse" onChange={(e)=>setEmail(e.target.value)} required />
-              <input  value={password || "" } type="password" placeholder="Dein Passwort" onChange={(e)=>setPassword(e.target.value)} required />
+              <input type="email"  value={email || "" }placeholder="Enter your email" onChange={(e)=>setEmail(e.target.value)} required />
+              <input  value={password || "" } type="password" placeholder="Enter your password" onChange={(e)=>setPassword(e.target.value)} required />
             </div>
             <button type="submit">Submit</button>
-            <p>Du hast noch keinen Account?<span onClick={()=>setExistingUser(false)}>Registrieren</span></p>
+            <p>Don't have an account? <span onClick={()=>setExistingUser(false)}>SignUp</span></p>
             </form> 
           : <form className='auth-form' onSubmit={handleSignup}>
-            <h1>Registriere dich mit deiner E-Mail-Adresse</h1>
+            <h1>Signup with your email</h1>
             <div className='form-group'>
-              <input value={name || "" } type="text" placeholder="Dein Name" onChange={(e)=>setName(e.target.value)} required />
-              <input  value={email || "" } type="email" placeholder="Deine E-Mail-Adresse" onChange={(e)=>setEmail(e.target.value)} required />
-              <input value={password || "" } type="password" placeholder="Dein Passwort" onChange={(e)=>setPassword(e.target.value)} required />
+              <input value={name || "" } type="text" placeholder="Enter your name" onChange={(e)=>setName(e.target.value)} required />
+              <input  value={email || "" } type="email" placeholder="Enter your email" onChange={(e)=>setEmail(e.target.value)} required />
+              <input value={password || "" } type="password" placeholder="Enter your password" onChange={(e)=>setPassword(e.target.value)} required />
             </div>
-          <button type="Bestätigen">Submit</button>
-          <p>Du hast schon einen Account?<span onClick={()=>setExistingUser(true)}>Login</span></p>
+          <button type="submit">Submit</button>
+          <p>Already have an account? <span onClick={()=>setExistingUser(true)}>Login</span></p>
           </form>
 
       }
