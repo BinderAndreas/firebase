@@ -26,7 +26,7 @@ function Comments({articleId}) {
     
 
 const addNewComment=(e)=>{
-    e.preventdefault();
+    e.preventDefault();
     const commentsRef=collection(db,"comments")
     addDoc(commentsRef,{
         userId:user?.uid,

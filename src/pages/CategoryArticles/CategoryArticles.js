@@ -34,6 +34,7 @@ function CategoryArticles() {
         {
           articles?.map(item=>{
             return <ArticleCard key={item.id} article={item}/>
+            
           })
         }
     </div>
